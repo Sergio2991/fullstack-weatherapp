@@ -18,7 +18,9 @@ export default function SigninForm() {
     console.log(data);
 
     if (data.result) {
-      router.push("/");
+      localStorage.setItem("loggedIn", "true");
+
+      router.push("/weather");
     } else {
       setMessage(`$(data.erro)r`);
     }

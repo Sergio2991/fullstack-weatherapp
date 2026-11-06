@@ -1,11 +1,8 @@
 import WeatherCard from "./WeatherCard";
 
 export default function WeatherList({ weather, onDelete }) {
-  console.log(weather);
   return (
     <>
-      <p>{weather.length} cities loaded</p>
-
       <div
         className="
           grid

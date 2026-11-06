@@ -28,9 +28,11 @@ export default function WeatherCard({ city, onDelete }) {
       </div>
 
       <div className="text-center">
-        <p className="text-4xl font-bold text-blue-600">{city.tempMax}°C</p>
+        <p className="text-4xl font-bold text-blue-600">
+          {Math.round(city.tempMax)}°C
+        </p>
 
-        <p className="mt-1 text-gray-500">Min {city.tempMin}°C</p>
+        <p className="mt-1 text-gray-500">Min {Math.round(city.tempMin)}°C</p>
       </div>
 
       <div className="mt-6 flex justify-center">

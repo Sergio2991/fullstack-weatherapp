@@ -1,9 +1,5 @@
-import WeatherDashboard from "../components/WeatherDashboard";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <main className="min-h-screen bg-sky-100">
-      <WeatherDashboard />
-    </main>
-  );
+  redirect("/login");
 }
