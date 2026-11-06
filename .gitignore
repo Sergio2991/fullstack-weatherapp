@@ -1,4 +1,4 @@
 **/node_modules
 **/.next
-**/.**v
+**/.env
 **/.env.local
