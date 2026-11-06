@@ -16,5 +16,3 @@ Full-stack weather application built with:
 - Next.js
 - React
 - Tailwind CSS
-
-## Features
