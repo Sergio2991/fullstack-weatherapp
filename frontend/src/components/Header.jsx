@@ -1,7 +1,19 @@
+"use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 import SearchBar from "./SearchBar";
 
 export default function Header({ onCityAdded }) {
+  const router = useRouter();
+
+  const handleLogout = () => {
+    localStorage.removeItem("loggedIn");
+
+    router.push("/login");
+  };
+
   return (
     <header
       className="
@@ -23,13 +35,32 @@ export default function Header({ onCityAdded }) {
 
       <SearchBar onCityAdded={onCityAdded} />
 
-      <Image
-        src="/images/user.png"
-        alt="User"
-        width={45}
-        height={45}
-        className="rounded-full"
-      />
+      <div className="flex items-center gap-4">
+        <Image
+          src="/images/user.png"
+          alt="User"
+          width={40}
+          height={40}
+          className="rounded-full"
+        />
+
+        <button
+          onClick={handleLogout}
+          className="
+            rounded-full
+            bg-red-500
+            px-4
+            py-2
+            text-sm
+            font-semibold
+            text-white
+            transition
+            hover:bg-red-600
+          "
+        >
+          Logout
+        </button>
+      </div>
     </header>
   );
 }
