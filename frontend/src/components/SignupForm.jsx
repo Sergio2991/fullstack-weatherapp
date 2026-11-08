@@ -1,22 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { signinUser } from "../services/userApi";
+import { signupUser } from "../services/userApi";
 
-export default function SigninForm() {
-  const router = useRouter();
-
+export default function SignupForm() {
   const [formData, setFormData] = useState({
+    name: "",
     email: "",
     password: "",
   });
 
-  const handleSignin = async () => {
-    const data = await signinUser(formData);
+  const handleSignup = async () => {
+    const data = await signupUser(formData);
 
     if (data.result) {
-      router.push("/");
+      alert("User created successfully");
     } else {
       alert(data.error);
     }
@@ -24,9 +22,22 @@ export default function SigninForm() {
 
   return (
     <div className="rounded-xl bg-white p-8 shadow-lg">
-      <h2 className="mb-4 text-2xl font-bold">Sign In</h2>
+      <h2 className="mb-4 text-2xl font-bold">Sign Up</h2>
 
       <div className="flex flex-col gap-4">
+        <input
+          type="text"
+          placeholder="Name"
+          value={formData.name}
+          onChange={(e) =>
+            setFormData({
+              ...formData,
+              name: e.target.value,
+            })
+          }
+          className="rounded border p-2"
+        />
+
         <input
           type="email"
           placeholder="Email"
@@ -54,10 +65,19 @@ export default function SigninForm() {
         />
 
         <button
-          onClick={handleSignin}
-          className="rounded bg-blue-600 p-2 text-white hover:bg-blue-700"
+          onClick={handleSignup}
+          className="
+            rounded
+            bg-green-600
+            p-2
+            text-white
+            transition-all
+            duration-150
+            hover:bg-green-700
+            active:scale-95
+          "
         >
-          Login
+          Register
         </button>
       </div>
     </div>
