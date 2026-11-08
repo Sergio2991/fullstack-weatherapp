@@ -67,15 +67,15 @@ export default function SignupForm() {
         <button
           onClick={handleSignup}
           className="
-            rounded
-            bg-green-600
-            p-2
-            text-white
-            transition-all
-            duration-150
-            hover:bg-green-700
-            active:scale-95
-          "
+    rounded
+    bg-green-600
+    p-2
+    text-white
+    transition-all
+    duration-150
+    hover:bg-green-700
+    active:scale-95
+  "
         >
           Register
         </button>

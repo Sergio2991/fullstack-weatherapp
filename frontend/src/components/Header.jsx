@@ -10,56 +10,64 @@ export default function Header({ onCityAdded }) {
 
   const handleLogout = () => {
     localStorage.removeItem("loggedIn");
-
     router.push("/login");
   };
 
   return (
-    <header
-      className="
-        flex
-        items-center
-        justify-between
-        bg-sky-900
-        px-8
-        py-4
-        text-white
-        shadow-lg
-      "
-    >
-      <div className="flex items-center gap-4">
-        <Image src="/images/logo.svg" alt="Logo" width={50} height={50} />
+    <header className="bg-sky-900 px-4 py-4 text-white shadow-lg">
+      <div
+        className="
+          mx-auto
+          flex
+          max-w-7xl
+          flex-col
+          gap-4
+          md:flex-row
+          md:items-center
+          md:justify-between
+        "
+      >
+        {/* Logo + Title */}
+        <div className="flex items-center justify-center gap-3 md:justify-start">
+          <Image src="/images/logo.svg" alt="Logo" width={45} height={45} />
 
-        <h1 className="text-3xl font-bold">Weather App</h1>
-      </div>
+          <h1 className="text-2xl font-bold md:text-3xl">Weather App</h1>
+        </div>
 
-      <SearchBar onCityAdded={onCityAdded} />
+        {/* Search */}
+        <div className="w-full md:w-auto">
+          <SearchBar onCityAdded={onCityAdded} />
+        </div>
 
-      <div className="flex items-center gap-4">
-        <Image
-          src="/images/user.png"
-          alt="User"
-          width={40}
-          height={40}
-          className="rounded-full"
-        />
+        {/* User + Logout */}
+        <div className="flex items-center justify-center gap-3">
+          <Image
+            src="/images/user.png"
+            alt="User"
+            width={36}
+            height={36}
+            className="rounded-full"
+          />
 
-        <button
-          onClick={handleLogout}
-          className="
-            rounded-full
-            bg-red-500
-            px-4
-            py-2
-            text-sm
-            font-semibold
-            text-white
-            transition
-            hover:bg-red-600
-          "
-        >
-          Logout
-        </button>
+          <button
+            onClick={handleLogout}
+            className="
+              rounded-full
+              bg-red-500
+              px-4
+              py-2
+              text-sm
+              font-semibold
+              transition-all
+              duration-150
+              hover:bg-red-600
+              active:scale-95
+              active:bg-red-700
+            "
+          >
+            Logout
+          </button>
+        </div>
       </div>
     </header>
   );

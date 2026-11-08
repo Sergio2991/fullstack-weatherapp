@@ -22,7 +22,7 @@ export default function SigninForm() {
 
       router.push("/weather");
     } else {
-      setMessage(`$(data.erro)r`);
+      setMessage(`${data.error}`);
     }
   };
 
@@ -64,7 +64,15 @@ export default function SigninForm() {
 
         <button
           onClick={handleSignin}
-          className="rounded bg-blue-600 p-2 text-white"
+          className="
+    rounded
+    bg-blue-600
+    p-2
+    text-white
+    transition-all
+    hover:bg-blue-700
+    active:scale-95
+  "
         >
           Login
         </button>
